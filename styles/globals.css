@@ -10,7 +10,15 @@ body {
     color: var(--text-dark);
     background-color: var(--background-body);
 }
+header {
+    margin-bottom: 20px;
+}
 
+main {
+    display:flex;
+    flex-direction: column;
+    gap: 100px;
+}
 
 button {
     transition-duration: var(--transition-duration);
@@ -36,4 +44,9 @@ h3 {
     font-size: 24px;
     font-weight: 600;
     line-height: 125%;
+}
+
+.text-accent {
+    font-style: italic;
+    color: var(--text-accent);
 }

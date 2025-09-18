@@ -11,7 +11,7 @@ a {
     text-decoration: none;
     color:inherit;
 }
-.button {
+button {
     padding: 0;
     border: none;
     font: inherit;
@@ -51,7 +51,7 @@ body,
     ul,
     ol,
     dl
-):where([class]) {
+) {
     margin-block: 0;
 }
 

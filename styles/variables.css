@@ -13,4 +13,5 @@
     --border-radius: 100px;
 
     --transition-duration: 0.2s;
+    --transition: transform 0.2s ease;
 }

@@ -1,0 +1,54 @@
+.hero {
+    background-image: url(/media/img-hero.png);
+    border-radius: 40px;
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 100px;
+    max-width: 730px;
+    color: var(--text-light);
+}
+
+.hero-text {
+}
+.text {
+}
+.hero-menu {
+
+}
+
+.hero-menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    padding: 20px 78px;
+    border-radius: var(--border-radius);
+    background-color: var(--background-body);
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.hero-menu-button .hero-menu-icon{
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+}
+
+.hero-menu-button .hero-menu-text {
+    transition: var(--transition);
+    transform: translateX(10px);
+}
+
+.hero-menu-button:hover .hero-menu-icon{
+    opacity: 1;
+    transform: scale(1);
+    transform: translateX(5px);
+}
+
+.hero-menu-button:hover .hero-menu-text {
+    transform: translateX(-5px);
+}
