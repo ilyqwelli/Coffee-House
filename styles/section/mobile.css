@@ -1,0 +1,60 @@
+.mobile {
+}
+.mobile .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+}
+.mobile-content {
+    max-width: 630px;
+    width: 590px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mobile-content-text {
+}
+
+.mobile-content-buttons {
+    display: flex;
+    align-items: center;
+    gap:20px
+}
+.mobile-content-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    width: 200px;
+    border: 1px solid var(--border-dark);
+    border-radius: 100px;
+    transition: var(--transition);
+}
+
+.mobile-content-button:hover {
+    background-color: var(--background-container);
+    color: var(--text-light);
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+    transition: var(--transition);
+}
+
+.mobile-content-button:hover .icon{
+    color: var(--text-light);
+}
+
+
+.button-text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+
+.mobile-image {
+}

@@ -51,6 +51,11 @@ h3 {
     color: var(--text-accent);
 }
 
+.caption-text {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 140%;
+}
 
 img {
     max-width: 100%;
