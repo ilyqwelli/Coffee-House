@@ -32,6 +32,12 @@
     font-weight: 600;
 }
 
+.hero-menu-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .hero-menu-button .hero-menu-icon{
     opacity: 0;
     transform: scale(0.5);
@@ -50,5 +56,5 @@
 }
 
 .hero-menu-button:hover .hero-menu-text {
-    transform: translateX(-5px);
+    transform: translateX(-2px);
 }
