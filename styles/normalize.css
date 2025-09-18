@@ -11,6 +11,13 @@ a {
     text-decoration: none;
     color:inherit;
 }
+.button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+}
 
 /*
     Убираем внутренние отступы слева тегам списков,
@@ -149,7 +156,7 @@ a:where([class]) {
     Курсор-рука при наведении на элемент
  */
 button,
-label {
+a {
     cursor: pointer;
 }
 
