@@ -27,13 +27,13 @@
 }
 
 .menu-button-active{
-        display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
     padding: 8px;
     width: 90px;
-    border-radius: 100px;
+    border-radius: 100px; */
     border: 1px solid var(--background-container);
     background-color: var(--background-container);
     color: var(--text-light);
@@ -47,24 +47,24 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    max-width: 340px;
-    max-height: 506px;
+    width: 310px;
     border-radius: 40px;
     border: 1px solid var(--border-light)
 }
 .menu-card-image {
     border-radius: 40px;
-    width: 340px;
-    height: 340px;
+    width: 310px;
+    height: 310px;
 }
 
 .menu-card-content {
     padding: 20px;
 }
 .menu-card-text {
+    height: 80px;
 }
 .menu-card-price {
-    margin-top: 36px;
+    /* margin-top: 36px; */
     font-size: 24px;
     font-weight: 600;
     line-height: 125%;

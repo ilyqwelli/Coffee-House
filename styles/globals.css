@@ -10,6 +10,16 @@ body {
     color: var(--text-dark);
     background-color: var(--background-body);
 }
+
+body.fade-out {
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+body.loaded {
+    opacity: 1;
+}
+
 header {
     margin-bottom: 20px;
 }
