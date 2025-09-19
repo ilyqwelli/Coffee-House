@@ -1,0 +1,44 @@
+.about {
+
+}
+.about .container {
+    width: 100%;
+    text-align: justify;
+}
+
+.about-images {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+.about-images-first,
+.about-images-second {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.about-images img {
+    border-radius: 20px;
+}
+
+
+.about-images-first {
+
+}
+
+.about-images-second {
+}
+
+.squart-images{
+    width: 660px;
+    height: 590px;
+}
+
+.restangle-images {
+    width: 660px;
+    height: 430px;
+}
+
+

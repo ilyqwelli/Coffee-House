@@ -1,0 +1,11 @@
+@import 'normalize.css';
+@import 'fonts.css';
+@import 'variables.css';
+@import 'globals.css';
+
+@import 'section/header.css';
+@import 'section/hero.css';
+@import 'section/favorite.css';
+@import 'section/about.css';
+@import 'section/mobile.css';
+@import 'section/contacts.css';
