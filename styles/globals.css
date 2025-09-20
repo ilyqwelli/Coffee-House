@@ -1,3 +1,8 @@
+
+.open{
+    display: flex !important;
+}
+
 body {
     display:flex;
     align-items: center;
@@ -35,7 +40,7 @@ button {
 }
 
 .container {
-    max-width: 1360px;
+    max-width: clamp(43rem, -5rem + 100vw, 85rem);
 }
 
 h1 {

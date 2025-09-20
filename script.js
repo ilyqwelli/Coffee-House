@@ -133,4 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Инициализация: по умолчанию Coffee
     renderMenu('Coffee');
+
+    //burger-menu
+
+
+        document.querySelector('.burger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('header-nav').classList.toggle('open');
+            document.querySelector('header-menu').classList.toggle('open');
+        })
+
 });

@@ -1,0 +1,73 @@
+@media (max-width: 1024px) {
+
+    .header .container  {
+    gap: clamp(33.438rem, -14.375rem + 99.61vw, 49.375rem);
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .header-nav,
+    .header-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0; bottom: 0; left: 0; right: 0;
+        z-index: 50;
+        overflow-y: auto;
+        padding: 50px 40px;
+        background-color: black;
+        animation: burgerAnimation 0.4s;
+    }
+
+    .header-nav ul{
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+}
+
+
+
+    .mobile .container,
+    .contacts .container {
+        display: flex;
+        flex-direction: column;
+        width: clamp(43rem, -5rem + 100vw, 59rem);
+        row-gap: 100px;
+    }
+
+    .mobile-content,
+    .contacts-offer,
+    .contacts-info {
+        display: flex;
+        align-items: flex-start;
+        align-self: stretch;
+        max-width: 944px;
+        min-width: 688px;
+    }
+
+    .mobile-image {
+        display: flex;
+        justify-content: center;
+    }
+
+
+}
+
+
+@media (max-width: 930px) {
+
+    .about-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .restangle-images {
+        display: none;
+    }
+
+}

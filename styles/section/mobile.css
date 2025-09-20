@@ -2,14 +2,14 @@
 }
 .mobile .container {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
-    gap: 100px;
+    column-gap: clamp(2.5rem, -1.786rem + 8.93vw, 6.25rem);
 }
 .mobile-content {
-    max-width: 630px;
-    width: 590px;
     display: flex;
+    max-width: 630px;
+    max-width: none;
     flex-direction: column;
     gap: 40px;
 }

@@ -5,8 +5,11 @@
 .contacts .container {
     display: flex;
     align-items: center;
-    gap: 100px;
-    padding: 100px;
+    column-gap: clamp(0.625rem, -13.268rem + 21.69vw, 6.25rem);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: clamp(3.75rem, -2.425rem + 9.64vw, 6.25rem);
+    padding-right: clamp(3.75rem, -2.425rem + 9.64vw, 6.25rem);
     color: var(--text-light);
 
 }
@@ -15,6 +18,7 @@
     flex-direction: column;
     gap: 40px;
     max-width: 530px;
+    max-width: none;
 }
 
 .contacts-social {

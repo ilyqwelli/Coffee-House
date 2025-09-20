@@ -3,6 +3,7 @@
 @import 'variables.css';
 @import 'globals.css';
 
+
 @import 'section/header.css';
 @import 'section/hero.css';
 @import 'section/favorite.css';
@@ -11,3 +12,5 @@
 @import 'section/contacts.css';
 
 @import 'section/menu.css';
+
+@import 'adaptive.css';
