@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: clamp(2.5rem, -21.5rem + 50vw, 23.5rem);
+    gap: clamp(0rem, -19.066rem + 47.3vw, 23.5rem);
 }
 
 .favorite-arrow-button {
@@ -38,14 +38,14 @@
 }
 
 
-.favorite-arrow-button:hover {
+/* .favorite-arrow-button:hover {
     background-color: var(--background-container);
 }
 
 .favorite-arrow-button:hover .arrow-left,
 .favorite-arrow-button:hover .arrow-right{
     color: var(--text-light);
-}
+} */
 
 .favorite-slide {
     display: flex;

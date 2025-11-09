@@ -4,12 +4,10 @@
     display: flex;
 
     align-items: center;
-    column-gap: clamp(2.5rem, -1.786rem + 8.93vw, 6.25rem);
+    column-gap: clamp(0rem, -15.437rem + 24.1vw, 6.25rem);
 }
 .mobile-content {
     display: flex;
-    max-width: 630px;
-    max-width: none;
     flex-direction: column;
     gap: 40px;
 }
@@ -33,10 +31,10 @@
     transition: var(--transition);
 }
 
-.mobile-content-button:hover {
+/* .mobile-content-button:hover {
     background-color: var(--background-container);
     color: var(--text-light);
-}
+} */
 
 .icon {
     width: 36px;
@@ -44,9 +42,9 @@
     transition: var(--transition);
 }
 
-.mobile-content-button:hover .icon{
+/* .mobile-content-button:hover .icon{
     color: var(--text-light);
-}
+} */
 
 
 .button-text {
@@ -57,4 +55,6 @@
 
 
 .mobile-image {
+    width: clamp(20.625rem, -25.685rem + 72.29vw, 39.375rem);
+    height: clamp(20.625rem, -25.685rem + 72.29vw, 39.375rem);
 }

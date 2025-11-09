@@ -7,7 +7,10 @@ body {
     display:flex;
     align-items: center;
     flex-direction: column;
-    padding: 20px 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: clamp(1rem, -0.064rem + 4.01vw, 2.5rem);
+    padding-right: clamp(1rem, -0.064rem + 4.01vw, 2.5rem);
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -44,13 +47,13 @@ button {
 }
 
 h1 {
-    font-size: 72px;
+    font-size: clamp(2.625rem, 1.953rem + 2.83vw, 4.5rem);
     font-weight: 600;
     line-height: 105%;
 }
 
 h2 {
-    font-size: 60px;
+    font-size: clamp(2rem, 1.373rem + 2.64vw, 3.75rem);
     font-weight: 600;
     line-height: 125%;
 }

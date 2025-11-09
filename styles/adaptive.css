@@ -1,62 +1,125 @@
+
+@media (hover: hover) and (pointer: fine) {
+    .social-item:hover {
+background-color: var(--background-body);
+}
+
+.social-item:hover .icon {
+    color: var(--text-dark);
+}
+
+.contacts-nav-item:hover::after {
+    transform: scaleX(1);
+}
+
+.favorite-arrow-button:hover {
+    background-color: var(--background-container);
+}
+
+.favorite-arrow-button:hover .arrow-left,
+.favorite-arrow-button:hover .arrow-right{
+    color: var(--text-light);
+}
+
+.header-nav-item:hover::after {
+    transform: scaleX(1);
+}
+
+.header-menu:hover::after {
+    transform: scaleX(1);
+}
+
+.hero-menu-button:hover .hero-menu-icon{
+    opacity: 1;
+    transform: scale(1);
+    transform: translateX(5px);
+}
+
+.hero-menu-button:hover .hero-menu-text {
+    transform: translateX(-2px);
+}
+
+.mobile-content-button:hover {
+    background-color: var(--background-container);
+    color: var(--text-light);
+}
+
+.mobile-content-button:hover .icon{
+    color: var(--text-light);
+}
+}
+
+
+
+@media (min-width: 1025px) {
+    .mobile-content {
+        max-width: 630px;
+}
+
+    .contacts-offer {
+        width: 530px;
+    }
+}
+
+
 @media (max-width: 1024px) {
 
     .header .container  {
-    gap: clamp(33.438rem, -14.375rem + 99.61vw, 49.375rem);
+    gap: clamp(12.75rem, -8.861rem + 90.99vw, 49.375rem);
     }
 
     .burger {
         display: flex;
     }
+    .popup-nav {
+        display: none;
+    }
 
-    .header-nav,
-    .header-menu {
+    /* .popup-nav {
         display: none;
         flex-direction: column;
+        align-items: center;
+        gap: 30px;
         position: fixed;
         height: 100%;
         width: 100%;
         top: 0; bottom: 0; left: 0; right: 0;
         z-index: 50;
         overflow-y: auto;
-        padding: 50px 40px;
-        background-color: black;
-        animation: burgerAnimation 0.4s;
-    }
+        padding: 100px 0;
+        background-color: var(--background-body);
+    } */
 
-    .header-nav ul{
+    /* .header-nav ul{
         flex-direction: column;
         row-gap: 30px;
-    }
-
-}
+    } */
 
 
-
-    .mobile .container,
-    .contacts .container {
+    .mobile .container {
         display: flex;
         flex-direction: column;
         width: clamp(43rem, -5rem + 100vw, 59rem);
         row-gap: 100px;
     }
 
-    .mobile-content,
-    .contacts-offer,
-    .contacts-info {
+    .mobile-content {
         display: flex;
         align-items: flex-start;
         align-self: stretch;
-        max-width: 944px;
-        min-width: 688px;
+
     }
 
     .mobile-image {
         display: flex;
         justify-content: center;
+        width: clamp(21.75rem, 11.35rem + 43.79vw, 39.375rem);
+        height: clamp(21.75rem, 11.35rem + 43.79vw, 39.375rem);
     }
 
 
 }
+
 
 
 @media (max-width: 930px) {
@@ -66,8 +129,65 @@
         align-items: center;
     }
 
+    .squart-images{
+    width: clamp(21.75rem, 0.505rem + 89.45vw, 52.5rem);
+}
+
     .restangle-images {
         display: none;
     }
 
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+    width: clamp(21.75rem, 0.938rem + 87.63vw, 43rem);
+}
+    .container {
+        width: clamp(21.75rem, 0.938rem + 87.63vw, 43rem);
+    }
+
+    .favorite-arrow-left,
+    .favorite-arrow-right {
+        display: none;
+    }
+
+        .favorite-slide-image {
+    max-width: clamp(21.75rem, 13.18rem + 36.08vw, 30.5rem);
+    max-height: clamp(22.75rem, -1rem + 100vw, 39.313rem);
+}
+    .favorite-slide-text {
+    max-width: clamp(22.75rem, -1rem + 100vw, 39.313rem);
+
+}
+
+    .mobile .container {
+    flex-direction: column;
+    width: clamp(21.75rem, 1.428rem + 85.57vw, 42.5rem);
+    gap: clamp(2.5rem, -1.173rem + 15.46vw, 6.25rem);
+}
+
+.contacts .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.contacts .container {
+    gap: 40px;
+    padding-top: clamp(3.75rem, 1.302rem + 10.31vw, 6.25rem);
+    padding-bottom: clamp(3.75rem, 1.302rem + 10.31vw, 6.25rem);
+    padding-left: clamp(1rem, -1.693rem + 11.34vw, 3.75rem);
+    padding-right: clamp(1rem, -1.693rem + 11.34vw, 3.75rem);
+
+
+}
+
+@media (max-width: 480px) {
+    .mobile-content-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 }

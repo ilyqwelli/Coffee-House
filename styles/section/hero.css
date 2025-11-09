@@ -1,17 +1,17 @@
 .hero {
     background-image: url(../../media/img-hero.png);
     border-radius: 40px;
-    width: clamp(43rem, -5rem + 100vw, 85rem);
+    width: clamp(43rem, -4.286rem + 98.51vw, 84.375rem);
 }
 
 .hero .container {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-left: clamp(3.75rem, -2.425rem + 9.64vw, 6.25rem);
-    padding-right: clamp(3.75rem, -2.425rem + 9.64vw, 6.25rem);
+    padding-top: clamp(3.75rem, 2.854rem + 3.77vw, 6.25rem);
+    padding-bottom: clamp(3.75rem, 2.854rem + 3.77vw, 6.25rem);
+    padding-left: clamp(1rem, -0.882rem + 7.92vw, 6.25rem);
+    padding-right: clamp(1rem, -0.882rem + 7.92vw, 6.25rem);
     max-width: 730px;
     color: var(--text-light);
 }
@@ -54,7 +54,7 @@
     transform: translateX(10px);
 }
 
-.hero-menu-button:hover .hero-menu-icon{
+/* .hero-menu-button:hover .hero-menu-icon{
     opacity: 1;
     transform: scale(1);
     transform: translateX(5px);
@@ -62,4 +62,4 @@
 
 .hero-menu-button:hover .hero-menu-text {
     transform: translateX(-2px);
-}
+} */

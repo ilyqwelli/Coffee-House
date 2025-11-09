@@ -11,7 +11,13 @@
 .header-logo-image {
     width: 100px;
     height: auto;
+    z-index: 100;
 }
+.popup-nav {
+    display: flex;
+    gap: clamp(9.375rem, -23.968rem + 52.05vw, 22.875rem);
+}
+
 .header-nav {
 }
 .header-nav-list {
@@ -19,6 +25,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 38px;
+    min-width: 445px;
 }
 .header-nav-item {
 }
@@ -36,9 +43,9 @@
 }
 
 
-.header-nav-item:hover::after {
+/* .header-nav-item:hover::after {
     transform: scaleX(1);
-}
+} */
 
 .header-nav-link {
 }
@@ -63,9 +70,9 @@
 }
 
 
-.header-menu:hover::after {
+/* .header-menu:hover::after {
     transform: scaleX(1);
-}
+} */
 
 .header-menu-active::after {
     content: "";
@@ -83,10 +90,11 @@
 .burger {
     display: none;
     position: relative;
+    z-index: 50;
     width: 44px;
     height: 44px;
     border-radius: var(--border-radius);
-    border: 1px solid var(--border-dark);
+    border: 1.5px solid var(--border-dark);
     cursor: pointer;
     justify-content: center;
     align-items: center;
@@ -97,7 +105,7 @@
     width: 20px;
     height: 1px;
     background-color: var(--text-dark);
-    transition: 0.3s;
+    transition: all 0.3s ease 0s;
 }
 
 .burger span:first-child {
@@ -109,6 +117,7 @@
 }
 
 /* крестик при активном меню */
+
 .burger.active span:first-child {
     transform: rotate(45deg);
     top: 21px;

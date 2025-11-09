@@ -5,7 +5,7 @@
 .contacts .container {
     display: flex;
     align-items: center;
-    column-gap: clamp(0.625rem, -13.268rem + 21.69vw, 6.25rem);
+    column-gap: 100px;
     padding-top: 100px;
     padding-bottom: 100px;
     padding-left: clamp(3.75rem, -2.425rem + 9.64vw, 6.25rem);
@@ -17,8 +17,6 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 530px;
-    max-width: none;
 }
 
 .contacts-social {
@@ -56,13 +54,13 @@
     transition: color var(--transition);
 }
 
-.social-item:hover {
+/* .social-item:hover {
 background-color: var(--background-body);
 }
 
 .social-item:hover .icon {
     color: var(--text-dark);
-}
+} */
 
 .contacts-info {
     display: flex;
@@ -95,6 +93,6 @@ background-color: var(--background-body);
 }
 
 
-.contacts-nav-item:hover::after {
+/* .contacts-nav-item:hover::after {
     transform: scaleX(1);
-}
+} */
