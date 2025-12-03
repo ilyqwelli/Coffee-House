@@ -34,13 +34,6 @@
 
 
 .menu-button-active{
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 8px;
-    width: 90px;
-    border-radius: 100px; */
     border: 1px solid var(--background-container);
     background-color: var(--background-container);
     color: var(--text-light);
@@ -77,6 +70,20 @@
     font-size: 24px;
     font-weight: 600;
     line-height: 125%;
+}
+
+.menu-load-more {
+    gap: 8px;
+    padding: 8px;
+    width: 150px;
+    border-radius: 100px;
+    border: 1px solid var(--border-light);
+}
+
+.menu-load-more:hover {
+    border: 1px solid var(--background-container);
+    background-color: var(--background-container);
+    color: var(--text-light);
 }
 
 /* ===== MODAL ===== */

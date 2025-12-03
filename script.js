@@ -1,4 +1,5 @@
 
+
 // BURGER-MENU //
 
 const burger = document.querySelector ('.burger');
@@ -118,157 +119,98 @@ menuLinks.forEach(link => {
 
     loadSlides();
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     // =======================
-//     // MENU SECTION
-//     // =======================
 
-//     const menuButtons = document.querySelectorAll('.menu-button');
-//     const menuSection = document.querySelector('.menu-section');
+// MENU //
 
-//     const menus = {
-//         Coffee: [
-//             { image: './media/coffee-1.jpg', title: 'Irish coffee', text: 'Fragrant black coffee with Jameson Irish whiskey and whipped milk', price: '$7.00' },
-//             { image: './media/coffee-2.jpg', title: 'Kahlua coffee', text: 'Classic coffee with milk and Kahlua liqueur under a cap of frothed milk', price: '$7.00' },
-//             { image: './media/coffee-3.jpg', title: 'Ice cappuccino', text: 'Cappuccino with soft thick foam in summer version with ice', price: '$5.00' },
-//             { image: './media/coffee-4.jpg', title: 'Honey raf', text: 'Espresso with frothed milk, cream and aromatic honey', price: '$5.50' }
-//         ],
-//         Tea: [
-//             { image: './media/tea-1.png', title: 'Moroccan', text: 'Fragrant black tea with tangerine, cinnamon, honey, lemon and mint', price: '$4.50' },
-//             { image: './media/tea-2.png', title: 'Ginger', text: 'Original black tea with fresh ginger, lemon and honey', price: '$5.00' },
-//             { image: './media/tea-3.png', title: 'Cranberry', text: 'Invigorating black tea with cranberry and honey', price: '$5.00' },
-//             { image: './media/tea-4.png', title: 'Sea buckthorn', text: 'Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon', price: '$5.50' }
-//         ],
-//         Dessert: [
-//             { image: './media/dessert-1.png', title: 'Marble cheesecake', text: 'Philadelphia cheese with lemon zest on a light sponge cake and red currant jam', price: '$3.50' },
-//             { image: './media/dessert-2.png', title: 'Red velvet', text: 'Layer cake with cream cheese frosting', price: '$4.00' },
-//             { image: './media/dessert-3.png', title: 'Cheesecake', text: 'Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar', price: '$4.50' },
-//             { image: './media/dessert-4.png', title: 'Creme brulee', text: 'Delicate creamy dessert in a caramel basket with wild berries', price: '$4.00' }
-//         ]
-//     };
+    let menuItems = [];
+    const menuButtons = document.querySelectorAll('.menu-button');
+    const menuSection = document.querySelector('.menu-section');
+    const loadMoreBtn = document.querySelector('.menu-load-more');
 
-//     function renderMenu(menuName) {
-//         const items = menus[menuName];
-//         menuSection.innerHTML = ''; // очищаем предыдущие карточки
+    let currentCategory = 'coffee';
+    let visibleCount = 4;
 
-//         items.forEach(item => {
-//             const card = document.createElement('div');
-//             card.classList.add('menu-card');
-//             card.innerHTML = `
-//                 <img class="menu-card-image" src="${item.image}" alt="${item.title}" loading="lazy">
-//                 <div class="menu-card-content">
-//                     <h3>${item.title}</h3>
-//                     <p class="menu-card-text">${item.text}</p>
-//                     <p class="menu-card-price">${item.price}</p>
-//                 </div>
-//             `;
+    fetch('./products.json')
+    .then(response => response.json())
+    .then(data => {
+        menuItems = data;
+        renderMenu(currentCategory); //
+    })
+    .catch(error => console.error('Ошибка загрузки JSON:', error));
 
-//             card.addEventListener('click', () => {
-//                 openModal(item.title, item.image);
-//     });
+    function renderMenu(category) {
+        currentCategory = category;
+        visibleCount = 4;
 
-//             menuSection.appendChild(card);
-//         });
-//     }
+        menuSection.innerHTML = '';
+        loadMoreBtn.style.display = 'none';
 
-//     menuButtons.forEach(button => {
-//         button.addEventListener('click', () => {
-//             menuButtons.forEach(btn => btn.classList.remove('menu-button-active'));
-//             button.classList.add('menu-button-active');
-//             renderMenu(button.textContent);
-//         });
-//     });
+        // фильтрация по категориям
+        const items = menuItems.filter(item => item.category === category);
 
-//     let productsData = [];
+        items.slice(0, visibleCount).forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
 
-// async function loadProducts() {
-//     try {
-//         const response = await fetch('./products.json'); // путь к твоему JSON
-//         productsData = await response.json();
-//     } catch (error) {
-//         console.error('Ошибка загрузки JSON:', error);
-//     }
-// }
+            const imgPath = `./media/${category}-${index + 1}.png`;
 
-// function openModal(productName, imageSrc) {
-//     const product = productsData.find(p => p.name === productName);
-//     if (!product) return;
+            card.innerHTML = `
+            <img src="${imgPath}"
+                alt="${item.name}"
+                class="menu-card-image">
+            <div class="menu-card-content">
+                <h3>${item.name}</h3>
+                <p class="menu-card-text">${item.description}</p>
+                <p class="menu-card-price">$${item.price}</p>
+            </div>
+            `;
 
-//     const modal = document.getElementById('product-modal');
-//     const modalImg = modal.querySelector('.modal-image');
-//     const modalTitle = modal.querySelector('.modal-title');
-//     const modalDesc = modal.querySelector('.modal-description');
-//     const modalPrice = modal.querySelector('.modal-price');
-//     const modalSizes = modal.querySelector('.modal-sizes');
-//     const modalAdditives = modal.querySelector('.modal-additives');
+            menuSection.appendChild(card);
+        });
 
-//     modalImg.src = imageSrc;
-//     modalImg.alt = product.name;
-//     modalTitle.textContent = product.name;
-//     modalDesc.textContent = product.description;
-//     modalPrice.textContent = `$${product.price}`;
+    if (items.length > visibleCount) {
+        loadMoreBtn.style.display = 'block';
+        }
+    }
 
-//     // размеры
-//     modalSizes.innerHTML = `
-//         <h4>Sizes:</h4>
-//         <ul>
-//         ${Object.entries(product.sizes)
-//             .map(([key, val]) => `<li>${key.toUpperCase()} — ${val.size} (+$${val["add-price"]})</li>`)
-//             .join('')}
-//         </ul>
-//     `;
+// при клике на кнопку Load more
+    loadMoreBtn.addEventListener('click', () => {
+        const items = menuItems.filter(item => item.category === currentCategory);
+        const nextItems = items.slice(visibleCount, visibleCount + 4);
 
-//     // добавки
-//     modalAdditives.innerHTML = `
-//         <h4>Additives:</h4>
-//         <ul>
-//             ${product.additives
-//             .map(add => `<li>${add.name} (+$${add["add-price"]})</li>`)
-//             .join('')}
-//         </ul>
-//     `;
+        nextItems.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
 
-//     modal.classList.add('active');
-//     document.body.style.overflow = 'hidden';
-// }
+            const imgIndex = visibleCount + index + 1;
+            const imgPath = `./media/${currentCategory}-${imgIndex}.png`;
 
-// function closeModal() {
-//     const modal = document.getElementById('product-modal');
-//     modal.classList.remove('active');
-//     document.body.style.overflow = '';
-// }
+            card.innerHTML = `
+            <img src="${imgPath}" alt="${item.name}" class="menu-card-image">
+            <div class="menu-card-content">
+                <h3>${item.name}</h3>
+                <p class="menu-card-text">${item.description}</p>
+                <p class="menu-card-price">$${item.price}</p>
+            </div>
+            `;
 
-// document.addEventListener('click', (e) => {
-//     if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close')) {
-//         closeModal();
-//     }
-// });
+            menuSection.appendChild(card);
+        });
 
-// // Инициализация: по умолчанию Coffee
-//     loadProducts().then(() => {
-//     renderMenu('Coffee'); // или твоя категория по умолчанию
-//     });
-// });
+    visibleCount += 4;
 
+    // если все показаны, скрыть кнопку
+    if (visibleCount >= items.length) {
+        loadMoreBtn.style.display = 'none';
+        }
+    });
 
+    // переключение категорий
+    menuButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            menuButtons.forEach(btn => btn.classList.remove('menu-button-active'));
+            button.classList.add('menu-button-active');
+            renderMenu(button.textContent.toLowerCase());
+        });
+});
 
-//     // =======================
-// // MODAL LOGIC
-// // =======================
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     // =======================
-//     // BURGER MENU
-//     // =======================
-
-//     const burger = document.querySelector('.burger');
-//     const popupNav = document.querySelector('.popup-nav');
-
-//     if (burger && popupNav) {
-//         burger.addEventListener('click', () => {
-//             burger.classList.toggle('active');
-//             popupNav.classList.toggle('open');
-//         });
-//     }
-// });
