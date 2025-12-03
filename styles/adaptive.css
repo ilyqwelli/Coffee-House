@@ -70,31 +70,40 @@ background-color: var(--background-body);
 
     .burger {
         display: flex;
-    }
-    .popup-nav {
-        display: none;
+        z-index: 100;
     }
 
-    /* .popup-nav {
-        display: none;
+    .popup-nav {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--background-body);
+
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 30px;
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        top: 0; bottom: 0; left: 0; right: 0;
-        z-index: 50;
-        overflow-y: auto;
         padding: 100px 0;
-        background-color: var(--background-body);
-    } */
 
-    /* .header-nav ul{
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .popup-nav.open {
+        transform: translateX(0%);
+    }
+
+    .header-nav ul{
         flex-direction: column;
         row-gap: 30px;
-    } */
+    }
 
+    body.menu-open {
+        overflow: hidden;
+}
 
     .mobile .container {
         display: flex;

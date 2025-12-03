@@ -38,15 +38,6 @@
 }
 
 
-/* .favorite-arrow-button:hover {
-    background-color: var(--background-container);
-}
-
-.favorite-arrow-button:hover .arrow-left,
-.favorite-arrow-button:hover .arrow-right{
-    color: var(--text-light);
-} */
-
 .favorite-slide {
     display: flex;
     justify-content: center;
@@ -89,4 +80,3 @@
 .is-current {
     background: var(--border-dark)
 }
-

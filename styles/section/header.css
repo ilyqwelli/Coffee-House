@@ -103,7 +103,7 @@
 .burger span {
     position: absolute;
     width: 20px;
-    height: 1px;
+    height: 2px;
     background-color: var(--text-dark);
     transition: all 0.3s ease 0s;
 }
