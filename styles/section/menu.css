@@ -109,40 +109,88 @@
 
 .modal-content {
     position: relative;
-    background: #fff;
-    color: #403F3D;
-    border-radius: 16px;
-    max-width: 500px;
+    background: var(--background-body);
+    color: var(--text-dark);
+    border-radius: 40px;
+    max-width: 800px;
     width: 90%;
     padding: 20px;
     z-index: 1001;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     animation: fadeIn 0.3s ease;
 }
 
 .modal-close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    background: none;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #403F3D;
+    border: 1px solid var(--background-container);
+    border-radius: 100px;
+    padding: 10px 78px;
+    transition-duration: var(--transition-duration);
+}
+
+.modal-close:hover {
+    background: var(--background-container);
+    color: var(--text-light);
 }
 
 .modal-image {
     width: 100%;
-    border-radius: 12px;
+    height: 50%;
+    border-radius: 40px;
     object-fit: cover;
+}
+
+@media (max-width: 480px) {
+    .modal-image {
+        display: none;
+    }
 }
 
 .modal-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+}
+
+
+.modal-sizes,
+.modal-additives {
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.modal-sizes button,
+.modal-additives button {
+    justify-content: center;
+    border: 1px solid var(--border-light);
+    border-radius: 100px;
+    padding: 8px;
+    transition-duration: var(--transition-duration);
+}
+
+.modal-sizes button.active,
+.modal-additives button.active {
+    background: var(--background-container);
+    color: var(--text-light);
+}
+
+.modal-sizes button:hover,
+.modal-additives button:hover {
+    background: var(--background-container);
+    color: var(--text-light);
+}
+
+.modal-total {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-note {
+    font-size: 13px;
+    opacity: 0.7;
+    border-top: 1px solid var(--border-light);
 }
 
 @keyframes fadeIn {

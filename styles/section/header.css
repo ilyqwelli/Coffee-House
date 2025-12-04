@@ -6,8 +6,7 @@
     gap: clamp(9.375rem, -23.968rem + 52.05vw, 22.875rem);
     font-weight: 600;
 }
-.header-logo {
-}
+
 .header-logo-image {
     width: 100px;
     height: auto;
@@ -18,8 +17,7 @@
     gap: clamp(9.375rem, -23.968rem + 52.05vw, 22.875rem);
 }
 
-.header-nav {
-}
+
 .header-nav-list {
     display: flex;
     justify-content: space-between;
@@ -27,8 +25,7 @@
     gap: 38px;
     min-width: 445px;
 }
-.header-nav-item {
-}
+
 
 .header-nav-item::after {
     content: "";
@@ -43,14 +40,9 @@
 }
 
 
-/* .header-nav-item:hover::after {
-    transform: scaleX(1);
-} */
 
-.header-nav-link {
-}
-.header-menu {
-}
+
+
 .header-menu-button {
     display: flex;
     align-items: center;
@@ -82,10 +74,7 @@
     background-color: var(--text-dark);
 }
 
-.button {
-}
-.coffee-cup {
-}
+
 
 .burger {
     display: none;

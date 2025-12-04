@@ -1,6 +1,4 @@
-.about {
 
-}
 .about .container {
     width: 100%;
     text-align: justify;
@@ -21,14 +19,6 @@
 
 .about-images img {
     border-radius: 20px;
-}
-
-
-.about-images-first {
-
-}
-
-.about-images-second {
 }
 
 .squart-images{

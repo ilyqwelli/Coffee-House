@@ -132,7 +132,6 @@ if (burger && menu) {
     if (menuSection) {
         let menuItems = [];
         const menuButtons = document.querySelectorAll('.menu-button');
-        const menuSection = document.querySelector('.menu-section');
         const loadMoreBtn = document.querySelector('.menu-load-more');
 
         let currentCategory = 'coffee';
@@ -173,6 +172,9 @@ if (burger && menu) {
                 </div>
                 `;
 
+                card.addEventListener('click', () => {
+                    openModal(item, imgPath);
+                });
                 menuSection.appendChild(card);
             });
 
@@ -194,13 +196,17 @@ if (burger && menu) {
                 const imgPath = `./media/${currentCategory}-${imgIndex}.png`;
 
                 card.innerHTML = `
-                <img src="${imgPath}" alt="${item.name}" class="menu-card-image">
-                <div class="menu-card-content">
-                    <h3>${item.name}</h3>
-                    <p class="menu-card-text">${item.description}</p>
-                    <p class="menu-card-price">$${item.price}</p>
-                </div>
+                    <img src="${imgPath}" alt="${item.name}" class="menu-card-image">
+                    <div class="menu-card-content">
+                        <h3>${item.name}</h3>
+                        <p class="menu-card-text">${item.description}</p>
+                        <p class="menu-card-price">$${item.price}</p>
+                    </div>
                 `;
+
+                card.addEventListener('click', () => {
+                    openModal(item, imgPath);
+                });
 
                 menuSection.appendChild(card);
             });
@@ -222,3 +228,104 @@ if (burger && menu) {
             });
     });
 }
+
+// MODAL PRODUCTS //
+
+    const productModal = document.getElementById('product-modal');
+    const modalOverlay = productModal.querySelector('.modal-overlay');
+    const modalClose = productModal.querySelector('.modal-close');
+
+    const modalImage = productModal.querySelector('.modal-image');
+    const modalTitle = productModal.querySelector('.modal-title');
+    const modalDescription = productModal.querySelector('.modal-description');
+    const modalPrice = productModal.querySelector('.modal-price');
+
+    const modalSizes = productModal.querySelector('.modal-sizes');
+    const modalAdditives = productModal.querySelector('.modal-additives');
+
+    let currentProduct = null;
+    let selectedSize = 's';
+    let selectedAdditives = [];
+
+    // открытие модального окна
+    function openModal(product, imgPath) {
+        currentProduct = product;
+
+        modalImage.src = imgPath;
+        modalTitle.textContent = product.name;
+        modalDescription.textContent = product.description;
+
+        selectedSize = 's';
+        selectedAdditives = [];
+
+        renderSizes();
+        renderAdditives();
+        updatePrice();
+
+        productModal.classList.add('active');
+    }
+
+    //
+    function renderSizes() {
+        modalSizes.innerHTML = '';
+
+        Object.entries(currentProduct.sizes).forEach(([key, info]) => {
+            const btn = document.createElement('button');
+            btn.className = 'modal-size-btn';
+            btn.textContent = info.size;
+
+            if (key === selectedSize) btn.classList.add('active');
+
+            btn.addEventListener('click', () => {
+                selectedSize = key;
+                renderSizes();
+                updatePrice();
+            });
+
+            modalSizes.appendChild(btn);
+        });
+    }
+
+    function renderAdditives() {
+        modalAdditives.innerHTML = '';
+
+        currentProduct.additives.forEach((additive, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'modal-additive-btn';
+            btn.textContent = `${additive.name}`;
+
+            btn.addEventListener('click', () => {
+                const exists = selectedAdditives.includes(additive);
+                if (exists) {
+                    selectedAdditives = selectedAdditives.filter(a => a !== additive);
+                    btn.classList.remove('active');
+                } else {
+                    selectedAdditives.push(additive);
+                    btn.classList.add('active');
+                }
+                updatePrice();
+            });
+
+            modalAdditives.appendChild(btn);
+        });
+    }
+
+    function updatePrice() {
+        const basePrice = Number(currentProduct.price);
+        const sizeAdd = Number(currentProduct.sizes[selectedSize]["add-price"]);
+        const additivesAdd = selectedAdditives.reduce((acc, add) => {
+            return acc + Number(add["add-price"]);
+        }, 0);
+
+        const total = basePrice + sizeAdd + additivesAdd;
+
+        modalPrice.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    modalClose.addEventListener('click', () => {
+        productModal.classList.remove('active');
+    });
+
+    modalOverlay.addEventListener('click', () => {
+        productModal.classList.remove('active');
+    });
