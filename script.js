@@ -68,6 +68,7 @@ if (burger && menu) {
         function changeSlide(step) {
             currentIndex = (currentIndex + step + slides.length) % slides.length;
             updateSlide(currentIndex);
+            resetAutoSlide();
         }
 
     // Автопрокрутка
@@ -289,12 +290,13 @@ if (burger && menu) {
     function renderAdditives() {
         modalAdditives.innerHTML = '';
 
-        currentProduct.additives.forEach((additive, index) => {
+        currentProduct.additives.forEach((additive) => {
             const btn = document.createElement('button');
             btn.className = 'modal-additive-btn';
-            btn.textContent = `${additive.name}`;
+            btn.textContent = additive.name;
 
-            btn.addEventListener('click', () => {
+            const toggleAdditive = (e) => {
+                e.preventDefault();
                 const exists = selectedAdditives.includes(additive);
                 if (exists) {
                     selectedAdditives = selectedAdditives.filter(a => a !== additive);
@@ -304,7 +306,10 @@ if (burger && menu) {
                     btn.classList.add('active');
                 }
                 updatePrice();
-            });
+            };
+
+            btn.addEventListener('click', toggleAdditive);
+            btn.addEventListener('touchend', toggleAdditive);
 
             modalAdditives.appendChild(btn);
         });

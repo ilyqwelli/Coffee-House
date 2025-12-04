@@ -161,6 +161,13 @@
     gap: 8px;
 }
 
+
+.modal-additives button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
 .modal-sizes button,
 .modal-additives button {
     justify-content: center;
